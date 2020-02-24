@@ -1,9 +1,29 @@
 <div class="toolbar">
-  <button  type="button" class="btn btn-dark" style="margin-left: 15px; 
-   height: fit-content; width: fit-content;" (click)="layoutService.addItem()">Add Card</button>
+
+  <div class="buttons">
+    <button type="button" class="btn btn-dark" style="margin-left: 15px; 
+      height: fit-content; width: fit-content;" (click)="layoutService.addItem()">Add Card</button>
+    <button type="button" class="btn btn-dark" style="margin-left: 15px; 
+      height: fit-content; width: fit-content;" (click)="onClick()">Configure Card</button>
+  </div>
+
+  <div class="draggable" style="height: fit-content; width: fit-content;" draggable="true" (dragend)="layoutService.dropItem('linechart')">Time-Series</div>
 </div>
+
 <gridster [options]="options">
-  <gridster-item *ngFor="let item of layout" [item]="item">
-    <button  type="button" class="btn btn-light" (click)="layoutService.deleteItem(item)">Delete Item</button>
+  <gridster-item *ngFor="let item of layout" [item]="item" (dragover)="layoutService.setDropId(item.id)">
+    <ng-container appLayoutItem [componentRef]="layoutService.getComponentRef(item.id)"></ng-container>
+
+    <div class="edit" *ngIf="showEditButton">
+      <button mat-button [matMenuTriggerFor]="menu" matTooltip="Edit" matTooltipPosition="right">
+        <mat-icon style="font-size: medium; border-style: solid 2px;">edit</mat-icon>
+      </button>
+      <div class="menu">
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="openDialog()">Chart Options</button>
+          <button mat-menu-item (click)="layoutService.deleteItem(item)">Delete Card</button>
+        </mat-menu>
+      </div>
+    </div>
   </gridster-item>
 </gridster>

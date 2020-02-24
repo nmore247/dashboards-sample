@@ -1,0 +1,30 @@
+<p style="font-weight: bold;">{{title}}</p>
+<hr> 
+<div class="example-container">   
+    <div class="device">
+        <mat-form-field>
+            <mat-label>Select Device</mat-label>
+            <mat-select>
+                <mat-option value="option">Battery Inverter-01</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="signal">
+        <mat-form-field>
+            <mat-label>Select Signal</mat-label>
+            <mat-select>
+                <mat-option value="option">AC Voltage</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <br>
+    <div class="button">
+        <mat-dialog-actions>
+            <button mat-stroked-button mat-dialog-close="false">Save</button>
+            <button mat-stroked-button style="margin-left: 20px;" mat-dialog-close>Close</button>
+        </mat-dialog-actions>
+       <br>
+       <hr>
+        <button mat-stroked-button>Add New Signal</button>
+    </div>
+</div>

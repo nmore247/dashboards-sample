@@ -9,4 +9,13 @@
     flex-direction: column;
     background-color: lightslategray;
   }
+
+  .draggable {
+    padding: 5px;
+    width: fit-content;
+    border: solid 1px #000;
+    margin-left: 20px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }  
  

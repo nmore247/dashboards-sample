@@ -2,9 +2,16 @@ import { Injectable } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
 import { UUID } from 'angular2-uuid';
 
+export interface IComponent {
+  id: string;
+  componentRef: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class DashboardLayoutService {
 
   public options: GridsterConfig = {
@@ -18,8 +25,10 @@ export class DashboardLayoutService {
   };
 
   public layout: GridsterItem[] = [];
-  constructor() { }
+  public components: IComponent[] = [];
+  dropId: string;
 
+  constructor() { }
 
   addItem(): void {
     this.layout.push({
@@ -33,5 +42,27 @@ export class DashboardLayoutService {
   deleteItem(id: string): void {
     const item = this.layout.find(d => d.id === id);
     this.layout.splice(this.layout.indexOf(item), 1);
+    const comp = this.components.find(c => c.id === id);
+    this.components.splice(this.components.indexOf(comp), 1);
+  }
+
+  setDropId(dropId: string): void {
+    this.dropId = dropId;
+  }
+  dropItem(dragId: string): void {
+    const { components } = this;
+    const comp: IComponent = components.find(c => c.id === this.dropId);
+
+    const updateIdx: number = comp ? components.indexOf(comp) : components.length;
+    const componentItem: IComponent = {
+      id: this.dropId,
+      componentRef: dragId
+    };
+    this.components = Object.assign([], components, { [updateIdx]: componentItem });
+  }
+
+  getComponentRef(id: string): string {
+    const comp = this.components.find(c => c.id === id);
+    return comp ? comp.componentRef : null;
   }
 }

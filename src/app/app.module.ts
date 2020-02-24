@@ -13,11 +13,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import {MatDialogModule, MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatMenu, MatMenuContent, MatMenuItem, MatIconModule, MatMenuModule, MatOption, MatOptionModule, MatSelectModule } from '@angular/material';
 import { DashboardDetailComponent } from './dashboard/dashboard-detail/dashboard-detail.component';
 import {MatButtonModule} from '@angular/material/button';
 import { GridsterModule } from 'angular-gridster2';
 import { DashboardStartComponent } from './dashboard/dashboard-start/dashboard-start.component';
+import { LineChartComponent } from './dashboard/dashboard-card-detail/charts/line-chart/line-chart.component';
+import { LayoutItemDirective } from './dashboard/layout-item.directive';
+import { DashboardCardOptionsComponent } from './dashboard/dashboard-card-detail/dashboard-card-options/dashboard-card-options.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { DashboardStartComponent } from './dashboard/dashboard-start/dashboard-s
     DashboardDialogComponent,
     PlantComponent,
     DashboardDetailComponent,
-    DashboardStartComponent
+    DashboardStartComponent,
+    LineChartComponent,
+    LayoutItemDirective,
+    DashboardCardOptionsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +47,14 @@ import { DashboardStartComponent } from './dashboard/dashboard-start/dashboard-s
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    GridsterModule
+    GridsterModule,
+    MatIconModule,
+    MatMenuModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule
   ],
-  entryComponents: [DashboardDialogComponent],
+  entryComponents: [DashboardDialogComponent, LineChartComponent, DashboardCardOptionsComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
