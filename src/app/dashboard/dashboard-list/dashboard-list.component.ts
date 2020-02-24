@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Input, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { DashboardService } from '../dashboard.service';
 import { Dashboard } from '../models/dashboard';
@@ -20,6 +20,8 @@ export class DashboardListComponent implements OnInit {
     public cdRef: ChangeDetectorRef,
     private dashBoardSvc: DashboardService) { }
 
+    dashBoardChanged = new EventEmitter<Dashboard[]>();
+
   // return list of dashboards using dashboard Service
   ngOnInit() {
     this.dashboards = this.dashBoardSvc.listDashboards();
@@ -27,7 +29,7 @@ export class DashboardListComponent implements OnInit {
   // logic for adding new dashboard
   openDialog(): void {
     const dialogRef = this.dialog.open(DashboardDialogComponent, {
-      width: '500px', height: '500px'
+      width: '350px', height: '250px'
     });
 
     dialogRef.afterClosed().subscribe(result => {

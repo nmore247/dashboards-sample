@@ -15,7 +15,10 @@ export interface DialogData {
 })
 export class DashboardDialogComponent implements OnInit {
   public dashboardName: string;
-  constructor(public dialogRef: MatDialogRef<DashboardDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  constructor(
+    public dialogRef: MatDialogRef<DashboardDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    ) { }
 
   ngOnInit() {
   }

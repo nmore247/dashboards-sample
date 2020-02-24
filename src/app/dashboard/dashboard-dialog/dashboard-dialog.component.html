@@ -1,10 +1,15 @@
-<div mat-dialog-content>
-    <p><strong>Input Dashboard Name</strong></p>
+<div class="dialog-class">
+  <div mat-dialog-content>
+    <p style="font-size: 15px;">Input Dashboard Name</p>
     <mat-form-field>
       <input matInput [(ngModel)]="dashboardName">
     </mat-form-field>
   </div>
   <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button (click)="saveClick()" cdkFocusInitial>Save</button>
+    <div class="dialog-button">
+      <button mat-button (click)="onNoClick()">Cancel</button>
+      <button mat-button (click)="saveClick()" cdkFocusInitial>Save</button>
+    </div>
   </div>
+</div>
+

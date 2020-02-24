@@ -14,6 +14,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import {MatDialogModule, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material';
+import { DashboardDetailComponent } from './dashboard/dashboard-detail/dashboard-detail.component';
+import {MatButtonModule} from '@angular/material/button';
+import { DashboardStartComponent } from './dashboard/dashboard-start/dashboard-start.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { MatInputModule } from '@angular/material';
     DashboardComponent,
     DashboardListComponent,
     DashboardDialogComponent,
-    PlantComponent
+    PlantComponent,
+    DashboardDetailComponent,
+    DashboardStartComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,8 @@ import { MatInputModule } from '@angular/material';
     FormsModule,
     MatDialogModule,
     MatFormFieldModule,
-        MatInputModule
+    MatInputModule,
+    MatButtonModule
   ],
   entryComponents: [DashboardDialogComponent],
   providers: [],

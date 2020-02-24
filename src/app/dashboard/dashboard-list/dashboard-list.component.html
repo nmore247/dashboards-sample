@@ -1,13 +1,15 @@
-<mat-toolbar style="background-color: lightgray;">
+<mat-toolbar style="background-color: rgb(78, 190, 255);">
     <div class="boards" *ngFor="let board of dashboards">
         <a class="dashboard-link" 
-    style="border-style: double; 
-    padding:5px; background-color:
-    rgb(148, 252, 88);
-    font-size: 15px; 
-    margin-right: 5px;" 
-    [routerLink]="[board.id]" routerLinkActive="active">{{board.id}}</a>
+        style=
+        "border-style: double; 
+        padding:5px; background-color:
+        rgb(148, 252, 88);
+        font-size: 15px; 
+        margin-right: 5px;" 
+        [routerLink]="[board.id]" 
+        routerLinkActive="active">{{board.id}}</a>
     </div>
     <button mat-stroked-button (click)="openDialog()">New Dashboard</button>
 </mat-toolbar>
-
+<router-outlet></router-outlet>

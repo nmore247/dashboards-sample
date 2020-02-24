@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Dashboard } from './models/dashboard';
 
 @Injectable({
@@ -6,10 +6,10 @@ import { Dashboard } from './models/dashboard';
 })
 export class DashboardService {
 
+  dashboardSelected = new EventEmitter<Dashboard>();
+
   private dashboards: Dashboard[] = [
-    new Dashboard('Dash-01', 'Hymon Dashboard'),
-    new Dashboard('Dash-02', 'Hymon Dashboard 2'),
-    new Dashboard('Dash-03', 'Hymon Dashboard 3')
+    new Dashboard('Dashboard', 'Default Dashboard'),
   ];
 
   constructor() { }
@@ -17,4 +17,9 @@ export class DashboardService {
   listDashboards() {
     return this.dashboards.slice();
   }
+
+  getDashboard(id: string) {
+    return this.dashboards[id];
+  }
+
 }
