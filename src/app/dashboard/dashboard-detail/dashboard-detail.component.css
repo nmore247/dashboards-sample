@@ -1,0 +1,12 @@
+.toolbar {
+    height: 50px;
+    display: flex;
+    background-color: rgb(78, 190, 255);
+  }
+  gridster {
+    display: flex;
+    height: calc(100vh - 115px);
+    flex-direction: column;
+    background-color: lightslategray;
+  }
+ 

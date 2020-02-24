@@ -16,6 +16,7 @@ import {MatDialogModule, MatDialog, MatDialogRef} from '@angular/material/dialog
 import { MatInputModule } from '@angular/material';
 import { DashboardDetailComponent } from './dashboard/dashboard-detail/dashboard-detail.component';
 import {MatButtonModule} from '@angular/material/button';
+import { GridsterModule } from 'angular-gridster2';
 import { DashboardStartComponent } from './dashboard/dashboard-start/dashboard-start.component';
 
 @NgModule({
@@ -39,7 +40,8 @@ import { DashboardStartComponent } from './dashboard/dashboard-start/dashboard-s
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    GridsterModule
   ],
   entryComponents: [DashboardDialogComponent],
   providers: [],

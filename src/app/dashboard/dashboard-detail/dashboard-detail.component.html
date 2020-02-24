@@ -1,1 +1,9 @@
-<p>dashboard-detail works!</p>
+<div class="toolbar">
+  <button  type="button" class="btn btn-dark" style="margin-left: 15px; 
+   height: fit-content; width: fit-content;" (click)="layoutService.addItem()">Add Card</button>
+</div>
+<gridster [options]="options">
+  <gridster-item *ngFor="let item of layout" [item]="item">
+    <button  type="button" class="btn btn-light" (click)="layoutService.deleteItem(item)">Delete Item</button>
+  </gridster-item>
+</gridster>

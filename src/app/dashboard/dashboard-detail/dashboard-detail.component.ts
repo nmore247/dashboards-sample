@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Dashboard } from '../models/dashboard';
 import { DashboardService } from '../dashboard.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { GridsterConfig, GridsterItem } from 'angular-gridster2';
+import { DashboardLayoutService } from './dashboard-layout.service';
 
 @Component({
   selector: 'app-dashboard-detail',
@@ -15,7 +17,16 @@ export class DashboardDetailComponent implements OnInit {
 
   constructor(
     private dashboardSvc: DashboardService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private layoutService: DashboardLayoutService
+    ) { }
+
+    get options(): GridsterConfig {
+      return this.layoutService.options;
+    }
+    get layout(): GridsterItem[] {
+      return this.layoutService.layout;
+    }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
