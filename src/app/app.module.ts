@@ -13,7 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import {MatDialogModule, MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { MatInputModule, MatMenu, MatMenuContent, MatMenuItem, MatIconModule, MatMenuModule, MatOption, MatOptionModule, MatSelectModule } from '@angular/material';
+import { MatInputModule, MatIconModule, MatMenuModule, MatOptionModule, MatSelectModule } from '@angular/material';
 import { DashboardDetailComponent } from './dashboard/dashboard-detail/dashboard-detail.component';
 import {MatButtonModule} from '@angular/material/button';
 import { GridsterModule } from 'angular-gridster2';
@@ -21,6 +21,10 @@ import { DashboardStartComponent } from './dashboard/dashboard-start/dashboard-s
 import { LineChartComponent } from './dashboard/dashboard-card-detail/charts/line-chart/line-chart.component';
 import { LayoutItemDirective } from './dashboard/layout-item.directive';
 import { DashboardCardOptionsComponent } from './dashboard/dashboard-card-detail/dashboard-card-options/dashboard-card-options.component';
+
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,10 @@ import { DashboardCardOptionsComponent } from './dashboard/dashboard-card-detail
     MatMenuModule,
     MatFormFieldModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
   ],
   entryComponents: [DashboardDialogComponent, LineChartComponent, DashboardCardOptionsComponent],
   providers: [],
